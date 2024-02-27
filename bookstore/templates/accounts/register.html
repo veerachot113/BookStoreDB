@@ -1,0 +1,49 @@
+<!-- register.html -->
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+  สมัครสมาชิก
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="text-center">สร้างบัญชี BookStoreDB ของคุณ</h2>
+            
+            <hr>
+            <br>
+            <form method="POST" action="{% url 'register' %}">
+            {% csrf_token %}
+
+            {% if form.errors %}
+             <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                <p>เกิดข้อผิดพลาดในการลงทะเบียน.</p>
+                {% for field in form %}
+                    
+                    {% if field.errors %}
+                    
+                        {{ field.errors}}
+                    
+                    {% endif %} 
+                        
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {{ form.as_p }}
+       
+            
+       
+    <input type="submit" value="Register" class="btn btn-info"> <small>เป็นสมาชิกอยู่แล้ว? <a href="{% url 'login' %}">เข้าสู่ระบบ</a> ที่นี่.</small>
+    <hr>
+    </form>
+    
+        </div>
+  </div>
+</div>
+
+{% endblock %}

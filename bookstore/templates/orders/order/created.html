@@ -1,0 +1,19 @@
+<!-- created.html -->
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+        ตะกร้าสินค้าของคุณ| ขอบคุณ
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row" style="margin-top: 6%">
+            <div class="col-md-8 col-md-offset-2">
+                <h3 class="page-header">ขอขอบคุณสำหรับการช้อปปิ้งกับเรา
+                </h3>
+                <p>คำสั่งซื้อของคุณเสร็จสมบูรณ์แล้ว หมายเลขคำสั่งซื้อของคุณคือ <strong>{{ order.id }}</strong>.</p>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}

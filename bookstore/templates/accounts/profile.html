@@ -1,0 +1,28 @@
+<!-- profile.html -->
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    ข้อมูลส่วนตัว
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="mb-4">ข้อมูลส่วนตัว</h2>
+            <p class="mb-4"><strong>ยินดีต้อนรับ, {{ user.username|capfirst }}!</strong></p>
+            <hr class="mb-4">
+            {% if user.is_authenticated %}
+            <p class="mb-2">Name : {{user.first_name}} {{user.last_name}}</p>
+            <p class="mb-2">Username : {{user.username}}</p>
+            <p class="mb-2">Email : {{user.email}}</p> 
+            <!-- ตัวอย่างข้อมูลอื่นๆ -->
+            <hr class="mb-4">
+            <a href="{% url 'edit_profile' %}" class="btn btn-info" role="button">แก้ไขข้อมูลส่วนตัว <i class="fas fa-edit"></i></a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
